@@ -13,8 +13,9 @@ const ParticleField = ({ count = 3000 }: ParticleFieldProps) => {
   const pointsRef = useRef<Group>(null);
   
   // Generate random points in a leaf-like pattern
-  // Using inSphere instead of float which doesn't exist
-  const points = random.inSphere(new Float32Array(count * 3), { radius: 2 });
+  // Create a Float32Array first and then pass it to inSphere to ensure correct typing
+  const positions = new Float32Array(count * 3);
+  const points = random.inSphere(positions, { radius: 2 });
   
   useFrame((state) => {
     if (!pointsRef.current) return;
@@ -23,7 +24,7 @@ const ParticleField = ({ count = 3000 }: ParticleFieldProps) => {
   
   return (
     <group ref={pointsRef}>
-      <Points positions={points} stride={3} frustumCulled={false}>
+      <Points positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#F2FCE2"
