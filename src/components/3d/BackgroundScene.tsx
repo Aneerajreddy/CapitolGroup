@@ -3,25 +3,18 @@ import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.cjs';
+import { Group } from 'three';
 
 interface ParticleFieldProps {
   count?: number;
 }
 
 const ParticleField = ({ count = 3000 }: ParticleFieldProps) => {
-  const pointsRef = useRef<Points>(null);
+  const pointsRef = useRef<Group>(null);
   
   // Generate random points in a leaf-like pattern
-  const points = new Float32Array(count * 3);
-  for (let i = 0; i < count; i++) {
-    const theta = random.float() * Math.PI * 2;
-    const radius = Math.pow(random.float(), 0.5) * 2;
-    const y = (random.float() - 0.5) * 2;
-    
-    points[i * 3] = Math.cos(theta) * radius;
-    points[i * 3 + 1] = y;
-    points[i * 3 + 2] = Math.sin(theta) * radius;
-  }
+  // Using inSphere instead of float which doesn't exist
+  const points = random.inSphere(new Float32Array(count * 3), { radius: 2 });
   
   useFrame((state) => {
     if (!pointsRef.current) return;
@@ -29,16 +22,18 @@ const ParticleField = ({ count = 3000 }: ParticleFieldProps) => {
   });
   
   return (
-    <Points ref={pointsRef} positions={points} stride={3} frustumCulled={false}>
-      <PointMaterial
-        transparent
-        color="#F2FCE2"
-        size={0.005}
-        sizeAttenuation={true}
-        depthWrite={false}
-        opacity={0.6}
-      />
-    </Points>
+    <group ref={pointsRef}>
+      <Points positions={points} stride={3} frustumCulled={false}>
+        <PointMaterial
+          transparent
+          color="#F2FCE2"
+          size={0.005}
+          sizeAttenuation={true}
+          depthWrite={false}
+          opacity={0.6}
+        />
+      </Points>
+    </group>
   );
 };
 
