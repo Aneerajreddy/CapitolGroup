@@ -12,6 +12,13 @@ import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
+// New page placeholders
+import Intent from "./pages/Intent";
+import Community from "./pages/Community";
+import Media from "./pages/Media";
+import Studio from "./pages/Studio";
+import Subsidiaries from "./pages/Subsidiaries";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +33,11 @@ const App = () => (
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/intent" element={<Intent />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/studio" element={<Studio />} />
+          <Route path="/subsidiaries" element={<Subsidiaries />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

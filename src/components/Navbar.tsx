@@ -29,16 +29,19 @@ const Navbar: React.FC = () => {
       <div className="container-custom flex items-center justify-between">
         <div className="logo">
           <Link to="/" className="text-xl md:text-2xl font-serif">
-            Alireza
+            CAPITOL GROUP
           </Link>
         </div>
 
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li><Link to="/" className="link-hover">Home</Link></li>
-            <li><Link to="/work" className="link-hover">Work</Link></li>
-            <li><Link to="/about" className="link-hover">About</Link></li>
-            <li><Link to="/contact" className="link-hover">Contact</Link></li>
+            <li><Link to="/intent" className="link-hover">Intent</Link></li>
+            <li><Link to="/community" className="link-hover">Community</Link></li>
+            <li><Link to="/about" className="link-hover">About Us</Link></li>
+            <li><Link to="/media" className="link-hover">Media</Link></li>
+            <li><Link to="/studio" className="link-hover">Studio</Link></li>
+            <li><Link to="/subsidiaries" className="link-hover">Subsidiaries</Link></li>
           </ul>
         </nav>
 
@@ -56,9 +59,12 @@ const Navbar: React.FC = () => {
         <div className="md:hidden fixed inset-0 bg-background z-40 animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
             <Link to="/" onClick={toggleMenu} className="link-hover">Home</Link>
-            <Link to="/work" onClick={toggleMenu} className="link-hover">Work</Link>
-            <Link to="/about" onClick={toggleMenu} className="link-hover">About</Link>
-            <Link to="/contact" onClick={toggleMenu} className="link-hover">Contact</Link>
+            <Link to="/intent" onClick={toggleMenu} className="link-hover">Intent</Link>
+            <Link to="/community" onClick={toggleMenu} className="link-hover">Community</Link>
+            <Link to="/about" onClick={toggleMenu} className="link-hover">About Us</Link>
+            <Link to="/media" onClick={toggleMenu} className="link-hover">Media</Link>
+            <Link to="/studio" onClick={toggleMenu} className="link-hover">Studio</Link>
+            <Link to="/subsidiaries" onClick={toggleMenu} className="link-hover">Subsidiaries</Link>
           </div>
         </div>
       )}
