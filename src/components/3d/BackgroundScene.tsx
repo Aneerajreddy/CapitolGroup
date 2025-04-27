@@ -3,10 +3,14 @@ import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.cjs';
-import { BufferGeometry } from 'three';
+import { BufferGeometry, Object3D } from 'three';
 
-const ParticleField = ({ count = 5000 }) => {
-  const pointsRef = useRef<BufferGeometry>(null);
+interface ParticleFieldProps {
+  count?: number;
+}
+
+const ParticleField = ({ count = 5000 }: ParticleFieldProps) => {
+  const pointsRef = useRef<Object3D>(null);
   
   // Generate random points
   const sphere = random.inSphere(new Float32Array(count * 3), { radius: 1.5 });
@@ -18,7 +22,7 @@ const ParticleField = ({ count = 5000 }) => {
   });
   
   return (
-    <group>
+    <>
       <Points ref={pointsRef} positions={sphere} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
@@ -29,7 +33,7 @@ const ParticleField = ({ count = 5000 }) => {
           opacity={0.4}
         />
       </Points>
-    </group>
+    </>
   );
 };
 

@@ -27,7 +27,7 @@ const FloatingImage = ({ imageUrl, title }: ProjectSceneProps) => {
   const height = width / aspectRatio;
 
   return (
-    <group>
+    <>
       <Plane ref={meshRef} args={[width, height]} position={[0, 0, 0]}>
         <meshBasicMaterial map={texture} />
       </Plane>
@@ -41,7 +41,7 @@ const FloatingImage = ({ imageUrl, title }: ProjectSceneProps) => {
       >
         {title}
       </Text>
-    </group>
+    </>
   );
 };
 
