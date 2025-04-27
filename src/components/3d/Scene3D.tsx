@@ -2,19 +2,19 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment, Float } from '@react-three/drei';
-import { Mesh } from 'three';
+import { Group } from 'three';
 
 const ArchitecturalStructure = () => {
-  const meshRef = useRef<Mesh>(null);
+  const groupRef = useRef<Group>(null);
   
   useFrame((state) => {
-    if (!meshRef.current) return;
-    meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.10;
+    if (!groupRef.current) return;
+    groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.10;
   });
 
   return (
     <Float speed={1} rotationIntensity={0.3} floatIntensity={0.4}>
-      <group ref={meshRef} scale={1.5}>
+      <group ref={groupRef} scale={1.5}>
         {/* Base building structure */}
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[1, 2, 1]} />
