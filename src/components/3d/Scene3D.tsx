@@ -4,23 +4,22 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment, Float } from '@react-three/drei';
 import { Mesh } from 'three';
 
-const RotatingShape = () => {
+const BuildingShape = () => {
   const meshRef = useRef<Mesh>(null);
   
   useFrame((state) => {
     if (!meshRef.current) return;
     meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
-    meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
+    <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
       <mesh ref={meshRef} scale={1.5}>
-        <octahedronGeometry args={[1, 0]} />
+        <boxGeometry args={[1, 2, 1]} />
         <meshStandardMaterial 
-          color="#ffffff" 
+          color="#9b87f5" 
           wireframe={true}
-          emissive="#000000"
+          emissive="#7E69AB"
           roughness={0.5}
           metalness={0.8}
         />
@@ -37,12 +36,14 @@ const Scene3D: React.FC = () => {
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <RotatingShape />
-        <Environment preset="city" />
+        <BuildingShape />
+        <Environment preset="sunset" />
         <OrbitControls 
           enableZoom={false}
           enablePan={false}
-          enableRotate={false}
+          enableRotate={true}
+          autoRotate={true}
+          autoRotateSpeed={0.5}
         />
       </Canvas>
     </div>
