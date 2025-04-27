@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { ArrowRight } from 'lucide-react';
+import Scene3D from '@/components/3d/Scene3D';
 
 const projects = [
   {
@@ -31,9 +32,10 @@ const projects = [
 const Index = () => {
   return (
     <Layout>
-      <section className="py-12 md:py-24">
-        <div className="container-custom">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif max-w-4xl leading-tight">
+      <section className="py-12 md:py-24 min-h-[85vh] flex flex-col justify-center relative">
+        <Scene3D />
+        <div className="container-custom relative z-10">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif max-w-4xl leading-tight mb-8 md:mb-12">
             Designer and developer creating thoughtful digital experiences
           </h1>
           
