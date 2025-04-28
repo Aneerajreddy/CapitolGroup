@@ -7,16 +7,16 @@ import Nature3D from '@/components/3d/Nature3D';
 const About = () => {
   const highlights = [
     {
-      title: "Sustainable Innovation",
-      description: "Leading the industry in eco-friendly architectural solutions and green building practices."
+      title: "Premium Locations",
+      description: "Strategic land acquisition in high-growth areas with excellent connectivity and future potential."
     },
     {
-      title: "Global Presence",
-      description: "Operating in major cities worldwide with a portfolio of landmark projects."
+      title: "Quality Infrastructure",
+      description: "World-class amenities and infrastructure that enhance property value and quality of life."
     },
     {
-      title: "Design Excellence",
-      description: "Award-winning designs that blend aesthetics with environmental responsibility."
+      title: "Trusted Developer",
+      description: "Known for transparency, legal compliance, and commitment to customer satisfaction."
     }
   ];
 
@@ -26,29 +26,24 @@ const About = () => {
         <div className="container-custom max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif mb-6">About Capitol Group</h1>
+              <h1 className="text-4xl md:text-5xl font-serif mb-6">About Capitol Groups</h1>
               <Nature3D />
             </div>
             
             <div className="flex flex-col justify-center">
               <p className="text-xl mb-6">
-                Capitol Group stands at the forefront of architectural innovation, 
-                combining cutting-edge design with environmental stewardship to 
-                shape the future of sustainable architecture.
+                Capitol Groups is a leading land development company specializing in creating 
+                well-planned, high-value plotted communities across prime locations.
               </p>
               
               <p className="text-lg mb-6 text-muted-foreground">
-                Founded in 1998, we've grown from a local architectural firm to a 
-                global leader in sustainable building design. Our commitment to 
-                environmental responsibility and innovative design has earned us 
-                recognition as one of the most forward-thinking architectural firms 
-                in the industry.
+                With a foundation built on trust and quality, we've established ourselves as pioneers 
+                in horizontal development, creating spaces where people can confidently invest in their future.
               </p>
               
               <p className="text-lg mb-8 text-muted-foreground">
-                With a team of over 500 professionals worldwide, we bring diverse 
-                perspectives and expertise to every project, ensuring solutions that 
-                are both innovative and sustainable.
+                Our commitment to excellence, transparent practices, and customer-centric approach 
+                has made us the preferred choice for investors looking for premium plotted developments.
               </p>
               
               <div className="mt-auto">
@@ -79,20 +74,20 @@ const About = () => {
             <h2 className="text-2xl md:text-3xl font-serif mb-8">Our Impact</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <p className="text-3xl md:text-4xl font-serif mb-2">25+</p>
-                <p className="text-muted-foreground">Years of Excellence</p>
+                <p className="text-3xl md:text-4xl font-serif mb-2">1000+</p>
+                <p className="text-muted-foreground">Acres Developed</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-serif mb-2">500+</p>
-                <p className="text-muted-foreground">Team Members</p>
+                <p className="text-3xl md:text-4xl font-serif mb-2">15+</p>
+                <p className="text-muted-foreground">Communities Built</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-serif mb-2">300+</p>
-                <p className="text-muted-foreground">Projects Completed</p>
+                <p className="text-3xl md:text-4xl font-serif mb-2">5000+</p>
+                <p className="text-muted-foreground">Happy Residents</p>
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-serif mb-2">20+</p>
-                <p className="text-muted-foreground">Countries Served</p>
+                <p className="text-3xl md:text-4xl font-serif mb-2">12</p>
+                <p className="text-muted-foreground">Cities Present</p>
               </div>
             </div>
           </div>
