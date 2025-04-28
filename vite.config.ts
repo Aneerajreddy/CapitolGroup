@@ -4,6 +4,12 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import NodeGlobalsPolyfillPlugin from '@esbuild-plugins/node-globals-polyfill';
 
+// Polyfill Web Crypto API in Node.js
+import { webcrypto } from 'crypto';
+if (!(globalThis as any).crypto) {
+  (globalThis as any).crypto = webcrypto;
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: "/CapitolGroupWebApp/",
@@ -18,7 +24,7 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // Polyfill the Node.js crypto module
+      // Polyfill the Node.js crypto module for dependencies
       crypto: require.resolve('crypto-browserify'),
     },
   },
