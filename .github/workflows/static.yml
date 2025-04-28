@@ -1,0 +1,46 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]  # Trigger deployment on push to the main branch
+  workflow_dispatch:  # Allows you to trigger the workflow manually from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false  # Ensures we don't cancel deployments that are still in progress
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}  # Dynamic URL to the deployed site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Checkout the repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify the Node.js version you want to use
+
+      - name: Install dependencies
+        run: npm install  # Install your project dependencies
+
+      - name: Build the project
+        run: npm run build  # Build the React/Vite project (ensure this creates the dist folder)
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'  # Point to the folder where the static content is generated
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
