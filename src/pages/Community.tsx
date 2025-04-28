@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Users } from 'lucide-react';
+import Terrain3D from '@/components/3d/Terrain3D';
 
 const Community = () => {
   const initiatives = [
@@ -11,7 +11,7 @@ const Community = () => {
       image: "https://images.unsplash.com/photo-1486325212027-8081e485255e"
     },
     {
-      title: "Environmental Programs",
+      title: "Environmental Programs", 
       description: "Leading sustainability workshops and green building initiatives in local communities.",
       image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e"
     },
@@ -31,10 +31,15 @@ const Community = () => {
             <h1 className="text-4xl md:text-5xl font-serif">Community</h1>
           </div>
 
-          <p className="text-xl mb-12 text-muted-foreground">
-            At Capitol Group, we believe in building more than just structures – we build communities 
-            that thrive and prosper.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <p className="text-xl text-muted-foreground">
+              At Capitol Group, we believe in building more than just structures – we build communities 
+              that thrive and prosper.
+            </p>
+            <div className="relative">
+              <Terrain3D />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {initiatives.map((initiative, index) => (

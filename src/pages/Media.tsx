@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import { MessageSquare } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import DataViz3D from '@/components/3d/DataViz3D';
 
 const Media = () => {
   const news = [
@@ -51,6 +52,10 @@ const Media = () => {
           <div className="flex items-center gap-4 mb-8">
             <MessageSquare className="w-8 h-8" />
             <h1 className="text-4xl md:text-5xl font-serif">Media</h1>
+          </div>
+
+          <div className="mb-12 relative">
+            <DataViz3D />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">

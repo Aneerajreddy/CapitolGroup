@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Building } from 'lucide-react';
+import ArchitecturalModel3D from '@/components/3d/ArchitecturalModel3D';
 
 const Studio = () => {
   const capabilities = [
@@ -44,12 +44,8 @@ const Studio = () => {
               </p>
             </div>
 
-            <div className="aspect-square">
-              <img 
-                src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
-                alt="Studio approach" 
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-square relative">
+              <ArchitecturalModel3D />
             </div>
           </div>
 

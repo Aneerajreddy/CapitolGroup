@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Users } from 'lucide-react';
+import MorphingStructure3D from '@/components/3d/MorphingStructure3D';
 
 const Subsidiaries = () => {
   const companies = [
@@ -44,10 +44,15 @@ const Subsidiaries = () => {
             <h1 className="text-4xl md:text-5xl font-serif">Subsidiaries</h1>
           </div>
 
-          <p className="text-xl mb-12 text-muted-foreground">
-            Capitol Group's family of companies works together to deliver comprehensive 
-            architectural and development solutions across the United States.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <p className="text-xl text-muted-foreground">
+              Capitol Group's family of companies works together to deliver comprehensive 
+              architectural and development solutions across the United States.
+            </p>
+            <div className="relative">
+              <MorphingStructure3D />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {companies.map((company, index) => (
