@@ -2,39 +2,53 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Link } from 'react-router-dom';
+import Nature3D from '@/components/3d/Nature3D';
 
 const About = () => {
+  const highlights = [
+    {
+      title: "Sustainable Innovation",
+      description: "Leading the industry in eco-friendly architectural solutions and green building practices."
+    },
+    {
+      title: "Global Presence",
+      description: "Operating in major cities worldwide with a portfolio of landmark projects."
+    },
+    {
+      title: "Design Excellence",
+      description: "Award-winning designs that blend aesthetics with environmental responsibility."
+    }
+  ];
+
   return (
     <Layout>
       <section className="py-12">
         <div className="container-custom max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div>
-              <h1 className="text-4xl md:text-5xl font-serif mb-6">About</h1>
-              <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
-                alt="Alireza portrait" 
-                className="w-full aspect-[3/4] object-cover"
-              />
+              <h1 className="text-4xl md:text-5xl font-serif mb-6">About Capitol Group</h1>
+              <Nature3D />
             </div>
             
             <div className="flex flex-col justify-center">
               <p className="text-xl mb-6">
-                I'm Alireza, a designer and developer based in New York. With over 
-                8 years of experience in the digital design industry, I specialize in 
-                creating clean, functional, and visually appealing designs.
+                Capitol Group stands at the forefront of architectural innovation, 
+                combining cutting-edge design with environmental stewardship to 
+                shape the future of sustainable architecture.
               </p>
               
               <p className="text-lg mb-6 text-muted-foreground">
-                My approach combines aesthetic sensitivity with technical expertise, 
-                allowing me to craft digital experiences that not only look beautiful 
-                but also function flawlessly. I believe that good design is invisible, 
-                enabling users to accomplish their goals without friction.
+                Founded in 1998, we've grown from a local architectural firm to a 
+                global leader in sustainable building design. Our commitment to 
+                environmental responsibility and innovative design has earned us 
+                recognition as one of the most forward-thinking architectural firms 
+                in the industry.
               </p>
               
               <p className="text-lg mb-8 text-muted-foreground">
-                When I'm not designing or coding, you can find me exploring the city, 
-                taking photographs, or experimenting with new cooking recipes.
+                With a team of over 500 professionals worldwide, we bring diverse 
+                perspectives and expertise to every project, ensuring solutions that 
+                are both innovative and sustainable.
               </p>
               
               <div className="mt-auto">
@@ -49,31 +63,36 @@ const About = () => {
           </div>
           
           <div className="mt-24">
-            <h2 className="text-2xl md:text-3xl font-serif mb-8">Experience</h2>
+            <h2 className="text-2xl md:text-3xl font-serif mb-12 text-center">Company Highlights</h2>
             
-            <div className="space-y-8">
-              <div className="border-b border-border pb-8">
-                <div className="flex flex-wrap justify-between mb-2">
-                  <h3 className="text-xl font-medium">Senior Designer</h3>
-                  <span className="text-muted-foreground">2019 - Present</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {highlights.map((item, index) => (
+                <div key={index} className="p-6 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors">
+                  <h3 className="text-xl font-serif mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </div>
-                <p className="text-muted-foreground">Design Studio NYC</p>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-24 text-center">
+            <h2 className="text-2xl md:text-3xl font-serif mb-8">Our Impact</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <p className="text-3xl md:text-4xl font-serif mb-2">25+</p>
+                <p className="text-muted-foreground">Years of Excellence</p>
               </div>
-              
-              <div className="border-b border-border pb-8">
-                <div className="flex flex-wrap justify-between mb-2">
-                  <h3 className="text-xl font-medium">UI/UX Designer</h3>
-                  <span className="text-muted-foreground">2016 - 2019</span>
-                </div>
-                <p className="text-muted-foreground">Creative Agency</p>
+              <div>
+                <p className="text-3xl md:text-4xl font-serif mb-2">500+</p>
+                <p className="text-muted-foreground">Team Members</p>
               </div>
-              
-              <div className="border-b border-border pb-8">
-                <div className="flex flex-wrap justify-between mb-2">
-                  <h3 className="text-xl font-medium">Junior Designer</h3>
-                  <span className="text-muted-foreground">2014 - 2016</span>
-                </div>
-                <p className="text-muted-foreground">Design Lab</p>
+              <div>
+                <p className="text-3xl md:text-4xl font-serif mb-2">300+</p>
+                <p className="text-muted-foreground">Projects Completed</p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-serif mb-2">20+</p>
+                <p className="text-muted-foreground">Countries Served</p>
               </div>
             </div>
           </div>

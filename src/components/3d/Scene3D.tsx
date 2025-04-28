@@ -1,52 +1,66 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, Float } from '@react-three/drei';
+import { OrbitControls, Float, Environment } from '@react-three/drei';
 import { Group } from 'three';
 
-const ArchitecturalStructure = () => {
+const ModernBuilding = () => {
   const groupRef = useRef<Group>(null);
   
   useFrame((state) => {
     if (!groupRef.current) return;
-    groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.10;
+    groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.12;
   });
 
   return (
-    <Float speed={1} rotationIntensity={0.3} floatIntensity={0.4}>
+    <Float speed={1} rotationIntensity={0.4} floatIntensity={0.5}>
       <group ref={groupRef} scale={1.5}>
-        {/* Base building structure */}
+        {/* Main building structure */}
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[1, 2, 1]} />
+          <boxGeometry args={[1, 3, 1]} />
           <meshStandardMaterial 
             color="#FFFFFF" 
             wireframe={true}
-            emissive="#CCCCCC"
-            roughness={0.7}
-            metalness={0.5}
-          />
-        </mesh>
-        
-        {/* Additional architectural elements */}
-        <mesh position={[0.7, 0.3, 0]}>
-          <boxGeometry args={[0.5, 1.2, 0.5]} />
-          <meshStandardMaterial 
-            color="#FFFFFF" 
-            wireframe={true} 
-            opacity={0.7}
+            emissive="#FFFFFF"
+            emissiveIntensity={0.2}
+            opacity={0.8}
             transparent={true}
-            emissive="#CCCCCC"
           />
         </mesh>
         
-        <mesh position={[-0.6, -0.2, 0.2]}>
-          <boxGeometry args={[0.4, 0.8, 0.4]} />
+        {/* Glass facade */}
+        <mesh position={[0.6, 0, 0]}>
+          <boxGeometry args={[0.1, 2.5, 0.8]} />
           <meshStandardMaterial 
             color="#FFFFFF" 
             wireframe={true}
-            opacity={0.7}
+            emissive="#FFFFFF"
+            opacity={0.4}
             transparent={true}
-            emissive="#CCCCCC"
+          />
+        </mesh>
+        
+        {/* Architectural details */}
+        <mesh position={[-0.6, -0.5, 0]}>
+          <boxGeometry args={[0.2, 1.5, 0.8]} />
+          <meshStandardMaterial 
+            color="#FFFFFF" 
+            wireframe={true}
+            emissive="#FFFFFF"
+            opacity={0.4}
+            transparent={true}
+          />
+        </mesh>
+        
+        {/* Roof structure */}
+        <mesh position={[0, 1.6, 0]}>
+          <boxGeometry args={[1.4, 0.1, 1.4]} />
+          <meshStandardMaterial 
+            color="#FFFFFF" 
+            wireframe={true}
+            emissive="#FFFFFF"
+            opacity={0.6}
+            transparent={true}
           />
         </mesh>
       </group>
@@ -58,18 +72,17 @@ const Scene3D: React.FC = () => {
   return (
     <div className="absolute inset-0 -z-10">
       <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-        <ambientLight intensity={0.3} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.8} />
+        <ambientLight intensity={0.4} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
-        <ArchitecturalStructure />
+        <ModernBuilding />
         <Environment preset="city" />
         <OrbitControls 
           enableZoom={false}
           enablePan={false}
           enableRotate={true}
           autoRotate={true}
-          autoRotateSpeed={0.3}
+          autoRotateSpeed={0.5}
         />
       </Canvas>
     </div>
